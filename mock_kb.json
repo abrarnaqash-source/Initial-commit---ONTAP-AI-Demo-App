@@ -1,7 +1,7 @@
 [
     {
         "keyword": "snapmirror",
-        "article": "SnapMirror relationship is broken. Check network connectivity, verify credentials, and reinitialize using 'snapmirror initialize'."
+        "article": "https://kb.netapp.com/on-prem/ontap/DP/SnapMirror/SnapMirror-KBs/SnapMirror_is_failing_with_CSM_errors."
     },
     {
         "keyword": "flexgroup",
@@ -12,3 +12,4 @@
         "article": "FabricPool tiering misconfiguration detected. Verify object store connectivity and tiering policy."
     }
 ]
+
