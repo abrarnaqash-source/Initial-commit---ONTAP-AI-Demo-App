@@ -5,11 +5,12 @@
     },
     {
         "keyword": "flexgroup",
-        "article": "FlexGroup volume performance issue. Balance workload across constituents and verify aggregate health."
+        "article": "https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/FlexGroup_quotas_in_mixed_state"
     },
     {
         "keyword": "fabricpool",
         "article": "FabricPool tiering misconfiguration detected. Verify object store connectivity and tiering policy."
     }
 ]
+
 
