@@ -6,7 +6,8 @@ import numpy as np
 from PIL import Image
 
 # Set your OpenAI API Key
-openai.api_key = "YOUR_OPENAI_API_KEY"
+import os
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Load mock KB dataset
 with open("mock_kb.json", "r") as f:
@@ -53,3 +54,4 @@ if uploaded_file:
 
     st.subheader("🛠 AI-Generated Resolution Guide")
     st.write(response.choices[0].message["content"])
+
