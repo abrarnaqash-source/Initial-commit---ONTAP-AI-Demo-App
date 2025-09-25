@@ -13,8 +13,8 @@ reader = easyocr.Reader(['en'])
 
 # Streamlit UI
 st.set_page_config(page_title="GenAI ONTAP Support Assistant", page_icon="🤖", layout="wide")
-st.title("🚀 GenAI-Powered ONTAP Support Assistant")
-st.write("Upload an ONTAP CLI/GUI screenshot and get an instant step-by-step resolution guide.")
+st.title("🚀 GenAI-Powered ONTAP Support Assistant (Offline Demo)")
+st.write("Upload an ONTAP CLI/GUI screenshot and get an instant step-by-step resolution guide — no API key needed.")
 
 uploaded_file = st.file_uploader("📤 Upload ONTAP Screenshot", type=["png", "jpg", "jpeg"])
 
@@ -35,7 +35,7 @@ if uploaded_file:
     if relevant_kb:
         st.subheader("🛠 Resolution Guide (Mock AI)")
         for kb in relevant_kb:
-            st.write(f"**Issue:** {kb['keyword']}")
+            st.write(f"**Issue:** {kb['keyword'].capitalize()}")
             st.write(f"**Resolution:** {kb['article']}")
     else:
-        st.warning("No matching KB entry found for this error.")
+        st.warning("⚠️ No matching KB entry found for this error. Please check the screenshot content.")
