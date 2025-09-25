@@ -1,0 +1,14 @@
+[
+    {
+        "keyword": "snapmirror",
+        "article": "SnapMirror relationship is broken. Check network connectivity, verify credentials, and reinitialize using 'snapmirror initialize'."
+    },
+    {
+        "keyword": "flexgroup",
+        "article": "FlexGroup volume performance issue. Balance workload across constituents and verify aggregate health."
+    },
+    {
+        "keyword": "fabricpool",
+        "article": "FabricPool tiering misconfiguration detected. Verify object store connectivity and tiering policy."
+    }
+]
