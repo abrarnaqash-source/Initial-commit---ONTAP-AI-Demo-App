@@ -3,11 +3,6 @@ import easyocr
 import json
 import numpy as np
 from PIL import Image
-from openai import OpenAI
-import os
-
-# Load OpenAI API key from environment variable
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY") or "YOUR_OPENAI_API_KEY")
 
 # Load mock KB dataset
 with open("mock_kb.json", "r") as f:
@@ -36,22 +31,11 @@ if uploaded_file:
 
     # KB Search
     relevant_kb = [kb for kb in kb_data if kb["keyword"].lower() in extracted_text.lower()]
-    kb_context = "\n".join([f"{kb['keyword']}: {kb['article']}" for kb in relevant_kb]) or "No relevant KB found."
 
-    # AI Reasoning
-    with st.spinner("🤖 Analyzing error and generating resolution guide..."):
-        prompt = f"""
-        You are an ONTAP troubleshooting assistant.
-        The following error/log was extracted: {extracted_text}
-        Based on the KB data below, provide a clear, step-by-step resolution guide with CLI commands if applicable.
-        KB Data:
-        {kb_context}
-        """
-        response = client.chat.completions.create(
-            model="gpt-4",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.2
-        )
-
-    st.subheader("🛠 AI-Generated Resolution Guide")
-    st.write(response.choices[0].message.content)
+    if relevant_kb:
+        st.subheader("🛠 Resolution Guide (Mock AI)")
+        for kb in relevant_kb:
+            st.write(f"**Issue:** {kb['keyword']}")
+            st.write(f"**Resolution:** {kb['article']}")
+    else:
+        st.warning("No matching KB entry found for this error.")
