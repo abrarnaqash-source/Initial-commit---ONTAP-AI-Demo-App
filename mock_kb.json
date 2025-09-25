@@ -4,7 +4,7 @@
         "article": "https://kb.netapp.com/on-prem/ontap/DP/SnapMirror/SnapMirror-KBs/SnapMirror_is_failing_with_CSM_errors."
     },
     {
-        "keyword": "flexgroup",
+        "keyword": "quota State: mixed",
         "article": "https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/FlexGroup_quotas_in_mixed_state"
     },
     {
@@ -12,5 +12,6 @@
         "article": "FabricPool tiering misconfiguration detected. Verify object store connectivity and tiering policy."
     }
 ]
+
 
 
