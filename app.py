@@ -1,13 +1,13 @@
 import streamlit as st
 import easyocr
-import openai
 import json
 import numpy as np
 from PIL import Image
-
-# Set your OpenAI API Key
+from openai import OpenAI
 import os
-openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# Load OpenAI API key from environment variable
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY") or "YOUR_OPENAI_API_KEY")
 
 # Load mock KB dataset
 with open("mock_kb.json", "r") as f:
@@ -47,11 +47,11 @@ if uploaded_file:
         KB Data:
         {kb_context}
         """
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-4",
-            messages=[{"role": "user", "content": prompt}]
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.2
         )
 
     st.subheader("🛠 AI-Generated Resolution Guide")
-    st.write(response.choices[0].message["content"])
-
+    st.write(response.choices[0].message.content)
